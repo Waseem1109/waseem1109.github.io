@@ -292,13 +292,19 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
       </div>
       <div class="evidence">
         <figure class="shot">
-          <img src="media/px4_warehouse.jpg" alt="PX4 simulation flight in a warehouse with a depth camera" loading="lazy" width="1600" height="756">
-          <figcaption>PX4 simulation flight with an Intel RealSense D435i.</figcaption>
+          <video src="media/swarm_flight.mp4" poster="media/swarm_flight_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Three drones taking off and flying in formation"></video>
+          <figcaption>Real flight test: three drones take off and fly in formation, commanded over the LoRa mesh (sped up 2.25×).</figcaption>
         </figure>
-        <figure class="shot">
-          <img src="media/pointcloud.jpg" alt="3D point cloud map in RViz" loading="lazy" width="1600" height="752">
-          <figcaption>3D point cloud map in RViz.</figcaption>
-        </figure>
+        <div class="pair">
+          <figure class="shot">
+            <img src="media/swarm_sky.jpg" alt="Swarm drones in flight against a blue sky" loading="lazy" width="1459" height="815">
+            <figcaption>Swarm drones in the air during a flight test.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="media/swarm_gcs.jpg" alt="Multi-vehicle ground station with four drones on a satellite map and per-node telemetry" loading="lazy" width="1600" height="802">
+            <figcaption>My ground station: per-node telemetry, formations and missions over Wi-Fi or LoRa.</figcaption>
+          </figure>
+        </div>
       </div>
     </article>
 
