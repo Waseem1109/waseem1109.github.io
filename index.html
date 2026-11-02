@@ -310,17 +310,21 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
 
     <article class="project" aria-labelledby="p-arm">
       <div>
-        <h3 id="p-arm">Cobot tool changing</h3>
+        <h3 id="p-arm">Fairino FR5 cobot: vision-guided machine tending</h3>
         <p class="where">Freelance client</p>
-        <div class="tags"><span class="tag real">Real hardware</span><span class="tag">ros2_control</span><span class="tag">MoveIt 2</span></div>
+        <div class="tags"><span class="tag real">Real hardware</span><span class="tag">MoveIt 2</span><span class="tag">ros2_control</span><span class="tag">YOLO</span><span class="tag">RealSense D435i</span></div>
         <div class="body">
-          <p>Custom ROS&nbsp;2 hardware plugin around the vendor SDKs of a Fairino cobot and two grippers, so the robot sets down one gripper and picks up the other by itself.</p>
+          <ul>
+            <li>A YOLO model on a live RealSense D435i feed detects the part inside the machine and estimates its position and orientation.</li>
+            <li>MoveIt&nbsp;2 plans the arm motion to take the part out of the machine and place it back on the machine.</li>
+            <li>Custom ROS&nbsp;2 hardware plugin around the vendor SDKs of the FR5 and its parallel and vacuum grippers, so the robot sets down one gripper and picks up the other by itself.</li>
+          </ul>
         </div>
       </div>
       <div class="evidence">
         <figure class="shot">
-          <img src="media/cobot_hardware.jpg" alt="Gripper, depth camera and cobot on the test bench" loading="lazy" width="1600" height="718">
-          <figcaption>Gripper, depth camera and cobot on the bench.</figcaption>
+          <img src="media/fairino_moveit.jpg" alt="RViz: Fairino FR5 model with planned grasp frames in front of the depth camera point cloud of the machine" loading="lazy" width="535" height="515">
+          <figcaption>MoveIt 2 in RViz: the FR5 with grasp frames, over the live depth point cloud of the machine.</figcaption>
         </figure>
       </div>
     </article>
