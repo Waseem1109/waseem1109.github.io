@@ -209,12 +209,16 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
           <div><dt>Hitch angle from tractor lidar</dt><dd>0.22° <small>RMSE</small></dd></div>
           <div><dt>Forward tracking up to 30 km/h</dt><dd>3.2 cm <small>RMSE</small></dd></div>
         </dl>
-        <p class="repo"><a href="https://github.com/Waseem1109/hitchpoint" target="_blank" rel="noopener">Results and plots on GitHub</a></p>
+        <p class="repo"><a href="https://github.com/Waseem1109/hitchpoint" target="_blank" rel="noopener">Results, plots and benchmark write-up on GitHub</a></p>
       </div>
       <div class="evidence">
         <figure class="shot">
           <video src="media/drive.mp4" poster="media/drive_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Truck driving through the port in Gazebo and RViz"></video>
           <figcaption>Routing on the lane map, path tracking and the front safety corridor (sped up).</figcaption>
+        </figure>
+        <figure class="shot">
+          <video src="media/slam_all_methods.mp4" poster="media/slam_all_methods_poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Eight lidar SLAM methods run on the same recorded drive and compared with ground truth"></video>
+          <figcaption>Eight lidar SLAM / LIO methods on the same recorded drive. Green: ground truth. Red: method alone. Yellow: method fused with wheels and IMU (15&times; speed).</figcaption>
         </figure>
         <figure class="shot">
           <img src="media/slam_benchmark.png" alt="Heatmap: worst position error after GNSS loss for 8 SLAM methods and fusion levels" loading="lazy" width="1365" height="962">
@@ -335,7 +339,7 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
     <div class="skills">
       <div><h3>Localisation &amp; fusion</h3><ul><li>EKF / UKF sensor fusion</li><li>Lidar SLAM and LIO</li><li>VIO (VINS-Fusion)</li><li>IMU dead reckoning</li><li>GNSS / RTK, map matching</li></ul></div>
       <div><h3>Robotics software</h3><ul><li>ROS / ROS 2, Nav2, Open-RMF</li><li>ros2_control, MoveIt 2</li><li>Gazebo, Isaac Sim</li><li>PX4, ArduPilot, MAVLink</li><li>C++17, Python</li></ul></div>
-      <div><h3>Embedded &amp; hardware</h3><ul><li>ESP32, STM32, RP2040, Jetson</li><li>UART, I2C, SPI, CAN</li><li>LoRa, Wi-Fi telemetry</li><li>SolidWorks CAD</li></ul></div>
+      <div><h3>Embedded &amp; hardware</h3><ul><li>ESP32, STM32, RP2040, Jetson</li><li>UART, I2C, SPI, CAN</li><li>LoRa, Wi-Fi telemetry</li><li>PCB layout basics</li><li>SolidWorks CAD</li></ul></div>
       <div><h3>Engineering practice</h3><ul><li>Ground-truth evaluators</li><li>rosbag replay and debugging</li><li>Docker, Fast DDS / Cyclone DDS</li><li>Linux, Git</li><li>Field trials and test plans</li></ul></div>
     </div>
   </section>
