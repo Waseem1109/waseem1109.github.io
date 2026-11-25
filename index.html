@@ -193,13 +193,14 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
       <div>
         <h3 id="p-hitch">Hitchpoint: autonomous truck-trailer</h3>
         <p class="where">Personal project, ongoing</p>
-        <div class="tags"><span class="tag">Simulation</span><span class="tag">ROS 2 Humble</span><span class="tag">Gazebo Harmonic</span><span class="tag">EKF</span><span class="tag">Lidar SLAM</span></div>
+        <div class="tags"><span class="tag">Simulation</span><span class="tag">ROS 2 Humble</span><span class="tag">Gazebo Harmonic</span><span class="tag">EKF</span><span class="tag">Lidar SLAM</span><span class="tag">Perception</span></div>
         <div class="body">
           <p>A cabless tractor with a 13.6&nbsp;m semi-trailer that drives a container port on its own lane map, stops for people ahead and behind, and reverses into dock doors. Every module has an evaluator against Gazebo ground truth.</p>
           <ul>
             <li>Lidar map localisation fused into the global EKF, with a live map update for a yard that changes.</li>
             <li>Benchmark of 8 open-source lidar SLAM and LIO methods (FAST-LIO2, Point-LIO, LIO-SAM, GLIM, KISS-ICP, RKO-LIO, Cartographer 3D) under GNSS loss.</li>
             <li>Lidar-based hitch-angle EKF and a cascaded reversing controller with jackknife protection.</li>
+            <li>Lidar perception in C++: detection, tracking and 0–4 s prediction of trucks, forklifts and people from six merged lidars. Recall 0.82, precision 0.85, MOTA 0.67, about 22 ms per scan on a laptop CPU.</li>
           </ul>
           <p class="note">The map localisation results use an ideal map ray-cast from the world geometry; the SLAM methods run without a map. One run per scenario.</p>
         </div>
@@ -223,6 +224,10 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
         <figure class="shot">
           <img src="media/slam_benchmark.png" alt="Heatmap: worst position error after GNSS loss for 8 SLAM methods and fusion levels" loading="lazy" width="1365" height="962">
           <figcaption>Worst error after GNSS is lost, per method and fusion level.</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="https://github.com/Waseem1109/hitchpoint/blob/main/docs/perception.md" target="_blank" rel="noopener"><img src="media/perception_still.jpg" alt="Lidar perception in RViz: a tracked external truck with its predicted path, next to the ground-truth box" loading="lazy" width="1140" height="642"></a>
+          <figcaption>Lidar perception: track #62 at 35 km/h beside the ground-truth truck at 36 km/h, with its predicted path. Replay and results on GitHub.</figcaption>
         </figure>
         <div class="pair">
           <figure class="shot">
@@ -291,6 +296,7 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
             <li>Secure 5-node LoRa mesh for a drone swarm: custom TDMA flooding protocol with AES-128-GCM on ESP32 + SX1278, RF simulators, validated in flight.</li>
             <li>Decentralised formation control (line, grid, wedge, diamond) on ROS 2 and PX4 over uXRCE-DDS.</li>
             <li>Autonomous drone on Jetson Orin NX with a RealSense D435i and 4D LiDAR; GNSS-denied navigation design for an air-water vehicle.</li>
+            <li>Hands-on hardware: I assemble, tune and fly multirotors myself, including parameter tuning on a commercial agricultural hexacopter.</li>
           </ul>
         </div>
       </div>
@@ -309,6 +315,20 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
             <figcaption>My ground station: per-node telemetry, formations and missions over Wi-Fi or LoRa.</figcaption>
           </figure>
         </div>
+        <div class="pair">
+          <figure class="shot">
+            <img src="media/uav_quad.jpg" alt="Quadcopter with a Raspberry Pi companion computer, ESCs and RC receiver" loading="lazy" width="900" height="675">
+            <figcaption>Quadcopter I assembled, with a Raspberry Pi companion computer.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="media/uav_hexa.jpg" alt="Hexacopter with GPS mast and downward camera on dry grass" loading="lazy" width="900" height="675">
+            <figcaption>Multirotor of the type used in the swarm flight tests.</figcaption>
+          </figure>
+        </div>
+        <figure class="shot">
+          <img src="media/uav_agri.jpg" alt="Agricultural spraying hexacopter hovering over grass" loading="lazy" width="900" height="675">
+          <figcaption>Agricultural spraying hexacopter (commercial airframe) in flight after tuning.</figcaption>
+        </figure>
       </div>
     </article>
 
@@ -319,8 +339,8 @@ footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mu
         <div class="tags"><span class="tag real">Real hardware</span><span class="tag">MoveIt 2</span><span class="tag">ros2_control</span><span class="tag">YOLO</span><span class="tag">RealSense D435i</span></div>
         <div class="body">
           <ul>
-            <li>A YOLO model on a live RealSense D435i feed detects the part inside the machine and estimates its position and orientation.</li>
-            <li>MoveIt&nbsp;2 plans the arm motion to take the part out of the machine and place it back on the machine.</li>
+            <li>YOLO detection plus my own object pose estimation on a live RealSense D435i feed: where the part is and how it is oriented.</li>
+            <li>MoveIt&nbsp;2 with MoveIt Task Constructor sequences the motion: take the part out of the machine and place it back.</li>
             <li>Custom ROS&nbsp;2 hardware plugin around the vendor SDKs of the FR5 and its parallel and vacuum grippers, so the robot sets down one gripper and picks up the other by itself.</li>
           </ul>
         </div>
